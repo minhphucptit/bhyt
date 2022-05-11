@@ -10,6 +10,7 @@ import org.springframework.lang.NonNull;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity(name = "inform")
 @Getter
@@ -26,16 +27,16 @@ public class Inform {
     private Integer type;
     @Column(name = "target")
     private Integer target;
-    @Column(name = "hostname")
-    private String hostname;
+    @Column(name = "hostName")
+    private String hostName;
     @Column(name = "fullname")
-    @NotNull(message = "Not empty value!")
     private String fullname;
     @Column(name = "code")
-//    @NonNull
     private String code;
+    @Column(name = "cmnd")
+    private String cmnd;
     @Column(name = "birthday")
-    private String birthday;
+    private Date birthday;
     @Column(name = "gender")
     private Integer gender;
     @Column(name = "nation")
@@ -44,8 +45,8 @@ public class Inform {
     private String ethnicity;
     @Column(name = "geocode")
     private String geocode;
-    @Column(name = "phonenumber")
-    private String phonenumber;
+    @Column(name = "phoneNumber")
+    private String phoneNumber;
     @Column(name = "district")
     private String district;
     @Column(name = "city")
@@ -58,19 +59,12 @@ public class Inform {
     private BigDecimal salary;
     @Column(name = "household")
     private String household;
-    @Column(name = "familycode")
-    private String familycode;
-    @Column(name = "phonecontact")
-
-    private String phonecontact;
-    @Column(name = "addresshousehold")
-    private String addresshousehold;
-
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
-    private User user;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "house_id")
-    private HouseHold houseHold;
+    @Column(name = "familyCode")
+    private String familyCode;
+    @Column(name = "phoneContact")
+    private String phoneContact;
+    @Column(name = "addressHousehold")
+    private String addressHousehold;
+    @Column(name = "lastPayment")
+    private String lastPayment;
 }

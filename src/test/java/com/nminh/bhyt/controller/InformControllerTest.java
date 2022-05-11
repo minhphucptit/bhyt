@@ -2,7 +2,6 @@ package com.nminh.bhyt.controller;
 
 import com.nminh.bhyt.model.Inform;
 import com.nminh.bhyt.repository.InformRepository;
-import com.nminh.bhyt.repository.UserRepository;
 import ma.glasnost.orika.MapperFacade;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,7 +26,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(InformApi.class)
+@WebMvcTest(InformController.class)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @ActiveProfiles("test")
 public class InformControllerTest {
