@@ -10,6 +10,7 @@ import ma.glasnost.orika.MapperFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.sound.sampled.Line;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -44,7 +45,7 @@ public class InformService {
 
         validateInform(request);
         Inform inform = new Inform();
-        mapperFacade.map(request, inform);
+        mapInform(inform, request);
         informRepository.save(inform);
     }
 
@@ -55,7 +56,7 @@ public class InformService {
             throw new NotFoundException("Inform not exits!");
         }
         Inform inform = optional.get();
-        mapperFacade.map(request,inform);
+        mapInform(inform, request);
         informRepository.save(inform);
     }
 
@@ -153,17 +154,17 @@ public class InformService {
           cost += Double.parseDouble(this.BASE_SALARY) * 4.5 / 100;
         }
         if (numberMember >= 2) {
-          cost += Double.parseDouble(this.BASE_SALARY) * (4.5 / 100) * (70 / 100);
+          cost += Double.parseDouble(this.BASE_SALARY) * (4.5 / 100) * (70.0 / 100);
         }
         if (numberMember >= 3) {
-          cost += Double.parseDouble(this.BASE_SALARY) * (4.5 / 100) * (60 / 100);
+          cost += Double.parseDouble(this.BASE_SALARY) * (4.5 / 100) * (60.0 / 100);
         }
         if (numberMember >= 4) {
-          cost += Double.parseDouble(this.BASE_SALARY) * (4.5 / 100) * (50 / 100);
+          cost += Double.parseDouble(this.BASE_SALARY) * (4.5 / 100) * (50.0 / 100);
         }
         if (numberMember >= 5) {
           for (int i = 0; i <= (numberMember - 5); i++) {
-            cost += Double.parseDouble(this.BASE_SALARY) * (4.5 / 100) * (40 / 100);
+            cost += Double.parseDouble(this.BASE_SALARY) * (4.5 / 100) * (40.0 / 100);
           }
         }
         return String.valueOf(cost);
@@ -224,5 +225,31 @@ public class InformService {
                 throw new BadRequestException("Đối tượng tham gia là hộ gia đình bắt buộc phải điền phụ lục hộ gia đình");
             }
         }
+    }
+
+    private void mapInform(Inform inform, Inform request) {
+
+        inform.setType(request.getType());
+        inform.setTarget(request.getTarget());
+        inform.setHostName(request.getHostName());
+        inform.setFullname(request.getFullname());
+        inform.setCode(request.getCode());
+        inform.setCmnd(request.getCmnd());
+        inform.setBirthday(request.getBirthday());
+        inform.setGender(request.getGender());
+        inform.setNation(request.getNation());
+        inform.setEthnicity(request.getEthnicity());
+        inform.setGeocode(request.getGeocode());
+        inform.setPhoneNumber(request.getPhoneNumber());
+        inform.setDistrict(request.getDistrict());
+        inform.setCity(request.getCity());
+        inform.setDkcb(request.getDkcb());
+        inform.setGuardians(request.getGuardians());
+        inform.setSalary(request.getSalary());
+        inform.setHousehold(request.getHousehold());
+        inform.setFamilyCode(request.getFamilyCode());
+        inform.setPhoneContact(request.getPhoneContact());
+        inform.setAddressHousehold(request.getAddressHousehold());
+        inform.setLastPayment(request.getLastPayment());
     }
 }
