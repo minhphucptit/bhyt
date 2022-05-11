@@ -46,9 +46,6 @@ public class InformControllerTest {
     @MockBean
     private InformService informService;
 
-    @Autowired
-    private InformService informServiceMock;
-
     @MockBean
     private static MapperFacade mapperFacade;
 
