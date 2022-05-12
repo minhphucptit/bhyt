@@ -38,6 +38,7 @@ public class InformServiceTest {
             "Kinh",
             "84",
             "0374306505",
+            "18",
             "Xuân Thủy",
             "Hà Nội",
             "Bệnh viên nhi",

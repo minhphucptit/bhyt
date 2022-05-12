@@ -49,6 +49,8 @@ public class Inform {
     private String phoneNumber;
     @Column(name = "district")
     private String district;
+    @Column(name = "street")
+    private String street;
     @Column(name = "city")
     private String city;
     @Column(name = "dkcb")
@@ -82,6 +84,7 @@ public class Inform {
         this.ethnicity = other.getEthnicity();
         this.geocode = other.getGeocode();
         this.phoneNumber = other.getPhoneNumber();
+        this.street = other.getStreet();
         this.district = other.getDistrict();
         this.city = other.getCity();
         this.dkcb = other.getDkcb();
@@ -94,7 +97,7 @@ public class Inform {
         this.lastPayment = other.getLastPayment();
     }
 
-    public Inform(Integer type, Integer target, String hostName, String fullname, String code, String cmnd, Date birthday, Integer gender, String nation, String ethnicity, String geocode, String phoneNumber, String district, String city, String dkcb, String guardians, BigDecimal salary, String household, String familyCode, String phoneContact, String addressHousehold, String lastPayment) {
+    public Inform(Integer type, Integer target, String hostName, String fullname, String code, String cmnd, Date birthday, Integer gender, String nation, String ethnicity, String geocode, String phoneNumber, String street, String district, String city, String dkcb, String guardians, BigDecimal salary, String household, String familyCode, String phoneContact, String addressHousehold, String lastPayment) {
         this.type = type;
         this.target = target;
         this.hostName = hostName;
@@ -107,6 +110,7 @@ public class Inform {
         this.ethnicity = ethnicity;
         this.geocode = geocode;
         this.phoneNumber = phoneNumber;
+        this.street = street;
         this.district = district;
         this.city = city;
         this.dkcb = dkcb;
