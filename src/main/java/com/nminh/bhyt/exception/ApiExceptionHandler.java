@@ -38,10 +38,10 @@ public class ApiExceptionHandler {
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    ResponseEntity<ResponseDto<Object>> handlerMethodArgumentNotValidException(Exception ex){
+    ResponseEntity<ResponseDto<Object>> handlerMethodArgumentNotValidException(MethodArgumentNotValidException ex){
         ResponseDto<Object> response = new ResponseDto<>();
         response.setCode("R_400");
-        response.setMessage(ex.getMessage());
+        response.setMessage(ex.getAllErrors().get(0).getDefaultMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
     }
 
