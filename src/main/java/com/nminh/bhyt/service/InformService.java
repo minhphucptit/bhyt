@@ -57,7 +57,7 @@ public class InformService {
             throw new NotFoundException("Inform not exits!");
         }
         Inform inform = optional.get();
-        mapInform(inform, request);
+        mapperFacade.map(inform, request);
         informRepository.save(inform);
     }
 
