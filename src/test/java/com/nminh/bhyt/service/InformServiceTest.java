@@ -6,6 +6,7 @@ import com.nminh.bhyt.exception.BadRequestException;
 import com.nminh.bhyt.exception.NotFoundException;
 import com.nminh.bhyt.model.Inform;
 import com.nminh.bhyt.repository.InformRepository;
+import ma.glasnost.orika.MapperFacade;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -53,6 +54,9 @@ public class InformServiceTest {
 
     @InjectMocks
     private InformService informService;
+
+    @Mock
+    MapperFacade mapperFacade;
 
     @Mock
     private InformRepository informRepository;

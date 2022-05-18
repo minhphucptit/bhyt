@@ -45,7 +45,8 @@ public class InformService {
 
         validateInform(request);
         Inform inform = new Inform();
-        mapInform(inform, request);
+        mapperFacade.map(inform,request);
+//        mapInform(inform, request);
         informRepository.save(inform);
     }
 
